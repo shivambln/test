@@ -1,0 +1,24 @@
+<html>
+<form [formGroup]="userForm" (ngSubmit)="logFormValue()">
+    <div>
+        <label for="firstName">First Name</label>
+        <input name="firstName" id="firstName" type="text" formControlName="firstName">
+    </div>
+    <div>
+        <label for="lastName">Last Name</label>
+        <input name="lastName" id="lastName" type="text" formControlName="lastName">
+    </div>
+    <div>
+        <label for="role">User Role</label>
+        <select name="role" id="role" formControlName="role">
+    <option *ngFor="let userRole of roles" [ngValue]="userRole">{{userRole}}</option>
+  </select>
+    </div>
+    <div>
+        <label for="notes">Additional Notes</label>
+        <textarea name="notes" id="notes" formControlName="notes" rows="6" placeholder="Add additional notes here."></textarea>
+    </div>
+    <button type="submit" [disabled]="!userForm.valid">Submit</button>
+</form>
+
+</html>
